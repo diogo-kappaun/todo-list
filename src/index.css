@@ -15,7 +15,7 @@
   }
 
   body {
-    @apply min-h-[1000px] antialiased bg-base-gray-600 text-base-gray-100;
+    @apply min-h-screen antialiased bg-base-gray-600 text-base-gray-100;
   }
 
   *::-webkit-scrollbar {
