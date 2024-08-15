@@ -7,7 +7,7 @@ const Checkbox: React.FC<
   >
 > = ({ checked, onChange, ...rest }) => {
   return (
-    <label className="flex cursor-pointer items-center">
+    <label className="cursor-pointer p-1">
       <input
         {...rest}
         type="checkbox"

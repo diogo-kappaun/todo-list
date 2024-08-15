@@ -19,7 +19,7 @@ const Button = ({ variant = 'primary', ...rest }: ButtonProps) => {
       variant: {
         primary: 'bg-product-blue-dark hover:bg-product-blue-normal',
         secondary:
-          'text-gray-300 hover:text-feedback-danger hover:bg-base-gray-400 p-2',
+          'text-gray-300 hover:text-feedback-danger hover:bg-base-gray-400 p-1',
       },
     },
   })
