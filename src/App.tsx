@@ -14,7 +14,8 @@ const App = () => {
   const [newTask, setNewTask] = useState('')
   const [parent] = useAutoAnimate()
 
-  const doneTask = data.filter((item) => item.isDone === true)
+  const doneTask =
+    data && data.length > 0 ? data.filter((item) => item.isDone === true) : []
 
   function handleDelete(id: number) {
     const taskDeleted = data.filter((item) => item.id !== id)
