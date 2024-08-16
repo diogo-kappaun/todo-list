@@ -14,8 +14,7 @@ const App = () => {
   const [newTask, setNewTask] = useState('')
   const [parent] = useAutoAnimate()
 
-  const doneTask =
-    data && data.length > 0 ? data.filter((item) => item.isDone === true) : []
+  const doneTask = data ? data.filter((item) => item.isDone === true) : []
 
   function handleDelete(id: number) {
     const taskDeleted = data.filter((item) => item.id !== id)
@@ -62,7 +61,7 @@ const App = () => {
   useEffect(() => {
     const loadData = localStorage.getItem('@todo-data')
 
-    setData(JSON.parse(loadData!))
+    return loadData ? setData(JSON.parse(loadData!)) : setData([])
   }, [])
 
   return (
