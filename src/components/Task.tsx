@@ -4,22 +4,27 @@ import { useState } from 'react'
 import Button from './Button'
 import Checkbox from './Checkbox'
 
-interface DataProps {
+export interface DataType {
   id: number
   isDone: boolean
   description: string
 }
 
 interface TaskProps {
-  data: DataProps
+  data: DataType
   onDelete: () => void
+  updateData: (updatedData: DataType) => void
 }
 
-const Task = ({ onDelete, data }: TaskProps) => {
+const Task = ({ onDelete, updateData, data }: TaskProps) => {
   const [isChecked, setIsChecked] = useState(data.isDone)
 
   function handleChange() {
     setIsChecked((prevState) => !prevState)
+
+    const updatedData = { ...data, isDone: !data.isDone }
+
+    updateData(updatedData)
   }
 
   return (
