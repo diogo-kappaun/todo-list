@@ -1,6 +1,8 @@
 import { ClipboardText, PlusCircle } from '@phosphor-icons/react'
 import { FormEvent, useEffect, useState } from 'react'
 
+import { useAutoAnimate } from '@formkit/auto-animate/react'
+
 import Button from './components/Button'
 import Input from './components/Input'
 import Task, { DataType } from './components/Task'
@@ -10,6 +12,7 @@ import Logo from './assets/Logo.svg'
 const App = () => {
   const [data, setData] = useState<DataType[]>([])
   const [newTask, setNewTask] = useState('')
+  const [parent] = useAutoAnimate()
 
   const doneTask = data.filter((item) => item.isDone === true)
 
@@ -92,7 +95,7 @@ const App = () => {
           </span>
         </div>
 
-        <div className="space-y-2">
+        <div ref={parent} className="space-y-2">
           {data.length > 0 ? (
             data.map((task) => (
               <Task
